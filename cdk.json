@@ -3,10 +3,10 @@
   "context": {
       "environment": {
           "AWS_REGION": "us-east-1",
-          "SQS_VISIBILITY_TIME_SECONDS": 60,
-          "SQS_MAX_RECEIVE_COUNT": 1,
+          "SQS_VISIBILITY_TIME_SECONDS": 21,
+          "SQS_MAX_RECEIVE_COUNT": 3,
           "EVENTBRIDGE_PIPE_BATCH_SIZE": 1,
-          "EVENTBRIDGE_PIPE_BATCHING_WINDOW_SECONDS": 1,
+          "EVENTBRIDGE_PIPE_BATCHING_WINDOW_SECONDS": 0,
           "ENRICHMENT_LAMBDA_FAILURE_RATE": 0
       }
   }
