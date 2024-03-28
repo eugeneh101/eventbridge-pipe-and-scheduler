@@ -131,13 +131,12 @@ class EventbridgePipeAndSchedulerStack(Stack):
                     # and then fall into DLQ.
                     # Another note: Eventbridge Pipe long polls SQS. It appears that
                     # Eventbridge pipe might wait up to 20 seconds, so batching window
-                    # isn't really 0 seconds even if you set it to 0 seconds. It seems
-                    # better to set batch window to 1 second instead of 0 seconds.
+                    # isn't really 0 seconds even if you set it to 0 seconds.
                     # Another note: SQS visibility needs to be at least 6 times the
                     # combined runtime of the pipe enrichment and target components.
                     # Or else messages might inadvertently fall into the DLQ.
-                    # Most of the time, when batch size is 1 and batch window is 1 seconds,
-                    # message from SQS to Lambda is instantaneous (ie <1 second),
+                    # Most of the time, when batch size is 1 and batch window is 0 or
+                    # 1 seconds, message from SQS to Lambda is instantaneous (ie <1 second),
                     # but occasionally it will take a few seconds (more than 20 seconds)
                     # due to Eventbridge pipe's real batch window.
                 ),
